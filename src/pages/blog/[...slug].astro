@@ -13,8 +13,11 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await post.render();
+const isLeaf = true
 ---
 
 <BlogPost {...post.data}>
+	<h1>Slot test</h1>
+	{isLeaf ? <p>Leaf</p> : <p>Branch</p>}
 	<Content />
 </BlogPost>
